@@ -1,4 +1,5 @@
 <!-- header.jsp -->
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,5 +9,5 @@
 </head>
 <body>
     <header>
-    	<h1>MICHISADA</h1>
+    	<h1>MICHISADA ミチサダ</h1>
     </header>

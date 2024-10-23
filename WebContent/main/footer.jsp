@@ -1,4 +1,5 @@
 <!-- footer.jsp -->
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <footer>
         <p>&copy; 2024 大原簿記法律専門学校柏校 情報処理科 Bチーム</p>
     </footer>
