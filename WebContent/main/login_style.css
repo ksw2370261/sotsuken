@@ -1,0 +1,31 @@
+.main-content {
+    display: flex;
+    flex-direction: column; /* 縦方向に要素を並べる */
+    justify-content: center; /* 縦方向の中央揃え */
+    align-items: center; /* 横方向の中央揃え */
+    width: 300px; /* 幅を300pxに設定 */
+    padding: 20px; /* 内側の余白を20pxに設定 */
+    border: 2px solid black; /* 黒い線で囲む (幅2px) */
+    border-radius: 10px; /* 角を少し丸くする */
+}
+
+body {
+    margin: 0; /* ページ全体の余白を0に設定 */
+    padding: 0; /* ページ全体のパディングを0に設定 */
+    display: flex; /* Flexboxを使って要素を配置 */
+    justify-content: center; /* 横方向に中央揃え */
+    align-items: center; /* 縦方向に中央揃え */
+    height: 100vh; /* 画面の高さ全体 (100% of viewport height) */
+}
+
+h2 {
+	text-align: center;
+}
+
+.id {
+	margin-bottom: 10px;
+}
+
+.pass {
+	margin-bottom: 10px;
+}
