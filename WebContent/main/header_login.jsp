@@ -28,7 +28,7 @@
 </head>
 <body>
     <header>
-    	<h1>MICHISADA ミチサダ</h1>
+    	<h1>　MICHISADA ミチサダ</h1>
 
     	<a href="logout.jsp" class="logout-btn">ログアウト</a>
     </header>

@@ -15,5 +15,5 @@
 </head>
 <body>
     <header>
-    	<h1>MICHISADA ミチサダ</h1>
+    	<h1>　MICHISADA ミチサダ</h1>
     </header>
