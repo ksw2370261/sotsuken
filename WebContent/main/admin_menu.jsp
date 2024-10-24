@@ -1,6 +1,16 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="header_login.jsp" %>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者メニュー</title>
+    <style>
+
+    </style>
+</head>
+
+
 <body>
 	<h2>管理者メニュー</h2>
 
