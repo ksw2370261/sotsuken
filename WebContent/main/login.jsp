@@ -90,7 +90,7 @@
             <button name="login">ログイン</button>
         </div>
         <div class="register-link">
-            <a href="register.jsp">新規登録はこちら</a>
+            <a href="sinki.jsp">新規登録はこちら</a>
         </div>
     </div>
 
