@@ -8,8 +8,8 @@
 		auth="Container"
 		type="javax.sql.DataSource"
 		driverClassName="org.h2.Driver"
-		url="jdbc:h2:tcp://localhost/~/sotsuken"
-		username="sa"
+		url="jdbc:h2:~/sotsuken"
+		username="b"
 		password=""
 	/>
 </Context>
