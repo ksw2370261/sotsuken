@@ -91,7 +91,7 @@
             <button name="login">新規登録</button>
         </div>
         <div class="register-link">
-            <a href="login.jsp">ログインはこちら</a>
+            <a href="Login.action">ログインはこちら</a>
         </div>
     </div>
 
