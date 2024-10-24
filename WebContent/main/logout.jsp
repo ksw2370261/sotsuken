@@ -79,8 +79,8 @@
     <div class="content">
         <h2>ログアウトしました</h2>
 
-        <div>
-            <button name="login">ログイン</button>
+        <div class="register-link">
+            <a href="sinki.jsp">新規登録はこちら</a>
         </div>
     </div>
 
