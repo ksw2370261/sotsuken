@@ -88,7 +88,7 @@
         </div>
 
         <div>
-            <button name="login">新規登録</button>
+            <button name="login" onclick="location.href='RegistExe.action'">新規登録</button>
         </div>
         <div class="register-link">
             <a href="Login.action">ログインはこちら</a>
