@@ -88,10 +88,8 @@
         </div>
 
         <div>
-        	<a href="LoginExe.action">
-            	<button name="login">ログイン</button>
-        	</a>
-        </div>
+    		<button name="login" onclick="location.href='LoginExe.action'">ログイン</button>
+		</div>
         <div class="register-link">
             <a href="Sinki.action">新規登録はこちら</a>
         </div>
