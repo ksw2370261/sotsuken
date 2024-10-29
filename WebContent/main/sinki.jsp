@@ -5,7 +5,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>新規登録</title>
+    <title>MICHISADA-新規登録</title>
     <!-- 共通スタイルを定義 -->
 	<style>
 	    body {
