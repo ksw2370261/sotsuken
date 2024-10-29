@@ -30,6 +30,7 @@ public class LoginExeAction extends Action {
             if (login != null) {
                 // ログイン成功時の処理
                 session.setAttribute("login", login);
+                session.setAttribute("ID", login.getId());  // ユーザーIDをセッションに保存
                 request.getRequestDispatcher("admin_menu.jsp").forward(request, response);
             } else {
                 // ログイン失敗時の処理
