@@ -5,10 +5,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class SinkiAction extends Action {
+public class RegistAction extends Action {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-    	req.getRequestDispatcher("sinki.jsp").forward(req, res);
+    	req.getRequestDispatcher("regist.jsp").forward(req, res);
     }
 }

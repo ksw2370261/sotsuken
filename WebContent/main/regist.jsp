@@ -1,10 +1,11 @@
-<!-- ログイン.jsp -->
+<!-- 新規登録.jsp -->
 
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>MICHISADA-ログイン</title>
+    <meta charset="UTF-8">
+    <title>MICHISADA-新規登録</title>
     <!-- 共通スタイルを定義 -->
 	<style>
 	    body {
@@ -76,24 +77,22 @@
     <%@ include file="header.jsp" %>
 
     <div class="content">
-        <h2>ログイン</h2>
+        <h2>新規登録</h2>
 
-	<form action="LoginExe.action" method="post">
         <div class="id">
-            <input type="text" name="id" id="id" placeholder="ID　　　　　　半角でご入力ください" required>
+            <input type="text" name="id" id="login" placeholder="ID　　　　　　半角でご入力ください" required>
         </div>
 
         <div class="pass">
-            <input type="password" name="password" id="password" placeholder="パスワード　　20文字以内の半角英数字でご入力ください">
+            <input type="password" name="password" placeholder="パスワード　　20文字以内の半角英数字でご入力ください">
         </div>
 
         <div>
-    		<button name="login" onclick="location.href='LoginExe.action'">ログイン</button>
-		</div>
-        <div class="register-link">
-            <a href="Regist.action">新規登録はこちら</a>
+            <button name="login">新規登録</button>
         </div>
-    </form>
+        <div class="register-link">
+            <a href="Login.action">ログインはこちら</a>
+        </div>
     </div>
 
     <%@ include file="footer.jsp" %>

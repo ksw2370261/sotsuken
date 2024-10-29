@@ -26,6 +26,10 @@
 	    </div>
 
 	    <div class="menu-item3">
+	        <a href="">イベント一覧</a>
+	    </div>
+
+	    <div class="menu-item4">
 	        <a href="">イベント投稿</a>
 	    </div>
 	</div>
