@@ -30,7 +30,7 @@
 	    </div>
 
 	    <div class="menu-item4">
-	        <a href="">イベント投稿</a>
+	        <a href="EventPostAction">イベント投稿</a>
 	    </div>
 	</div>
 </body>
