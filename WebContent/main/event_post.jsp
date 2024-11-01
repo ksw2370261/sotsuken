@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <title>イベント投稿画面</title>
 
+
 </head>
 <body>
  <!-- メインコンテンツ -->
