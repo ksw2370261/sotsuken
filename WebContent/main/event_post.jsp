@@ -13,7 +13,7 @@
  <!-- メインコンテンツ -->
     <div class="container">
         <!-- 戻るリンク -->
-        <a href="eventList.jsp">戻る</a><br><br>
+        <a href="admin_menu.jsp">戻る</a><br><br>
 
         <!-- イベント投稿フォーム -->
         <form action="EventServlet" method="post">
