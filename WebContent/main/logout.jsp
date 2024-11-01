@@ -79,9 +79,11 @@
     <div class="content">
         <h2>ログアウトしました</h2>
 
-        <div class="logout-link">
-            <a href="Logout.action">ログインはこちら</a>
-        </div>
+        <form action="Login.action" method="post">
+            <div>
+                <button name="login">ログインはこちら</button>
+            </div>
+        </form>
     </div>
 
     <%@ include file="footer.jsp" %>
