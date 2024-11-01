@@ -10,9 +10,11 @@
             display: flex; /* Use flexbox for the layout */
             flex-direction: column; /* Stack elements vertically */
             min-height: 100vh; /* Minimum height to fill the viewport */
+            margin: 0; /* Remove default body margin */
         }
         .container {
             flex: 1; /* Allow the container to grow and take available space */
+            padding: 15px; /* Add some padding for aesthetics */
         }
         /* Style for the box containing the table */
         .box-container {
@@ -20,8 +22,10 @@
             padding: 10px; /* Inner padding around the content */
             display: block; /* Change to block to control width */
             width: 100%; /* Set width to 100% to fit screen */
-            max-width: 1000px; /* Increased maximum width to 1000px */
+            max-width: 1000px; /* Maximum width */
             margin: 0 auto; /* Center the box on the page */
+            background-color: #fff; /* White background for the box */
+            border-radius: 8px; /* Rounded corners */
         }
         .event-table {
             width: 100%; /* Table spans full width of the box */
@@ -36,6 +40,12 @@
             text-align: right; /* Align buttons to the right */
             white-space: nowrap; /* Prevent buttons from wrapping */
         }
+        .btn-lg {
+            width: auto; /* Set to auto for original button size */
+        }
+        footer {
+            margin-top: auto; /* Push footer to the bottom */
+        }
     </style>
 </head>
 <body>
@@ -43,21 +53,35 @@
 
     <div class="container mt-3">
         <div class="text-center mb-3"> <!-- Center the button -->
-            <button type="button" class="btn btn-primary btn-lg">戻る</button> <!-- Added btn-lg for larger size -->
+            <button type="button" class="btn btn-primary btn-lg">戻る</button> <!-- Large size for button -->
         </div>
         <!-- Boxed container for the table -->
         <div class="box-container">
             <table class="table table-borderless mb-0 event-table">
-                <tr>
-                    <td>日付</td>
-                    <td>時間</td>
-                    <td>場所</td>
-                    <td>イベント名</td>
-                    <td class="btn-cell">
+                <thead>
+                    <tr>
+                        <th>日付</th>
+                        <th>時間</th>
+                        <th>場所</th>
+                        <th>イベント名</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="event" items="${eventList}">
+                        <tr>
+                            <td>${event.date}</td>
+                            <td>${event.time}</td>
+                            <td>${event.location}</td>
+                            <td>${event.name}</td>
+                              <td class="btn-cell">
                         <button type="button" class="btn btn-outline-secondary btn-sm">詳細</button>
                         <button type="button" class="btn btn-outline-secondary btn-sm ms-1">削除</button>
                     </td>
-                </tr>
+
+                        </tr>
+                    </c:forEach>
+                </tbody>
             </table>
         </div>
     </div>
