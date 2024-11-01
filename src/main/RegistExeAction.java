@@ -1,5 +1,3 @@
-// RegistExeAction.java
-
 package main;
 
 import java.sql.Connection;
@@ -53,14 +51,14 @@ public class RegistExeAction extends Action {
                 session.setAttribute("message", "登録が完了しました。");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             } else {
-                // 登録失敗時の処理
-                request.setAttribute("error", "・登録に失敗しました。IDが重複している可能性があります。");
-                request.getRequestDispatcher("register.jsp").forward(request, response);
+                // 重複エラーの処理
+                request.setAttribute("error", "このIDはすでに存在します。");
+                request.getRequestDispatcher("regist.jsp").forward(request, response);
             }
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Admin registration failed: " + e.getMessage(), e);
             request.setAttribute("error", "・システムエラーが発生しました。もう一度お試しください。");
-            request.getRequestDispatcher("register.jsp").forward(request, response);
+            request.getRequestDispatcher("admin_error.jsp").forward(request, response);
         }
     }
 }
