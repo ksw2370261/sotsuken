@@ -1,4 +1,4 @@
-// EventRegistExeAction.java
+// EventRegistExeAction
 
 package main;
 

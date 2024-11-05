@@ -1,4 +1,4 @@
-<!-- 管理者メニュー.jsp -->
+<!-- 管理者メニュー -->
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="header_login.jsp" %>
 
