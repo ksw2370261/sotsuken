@@ -1,5 +1,3 @@
-// EventRegistExeAction
-
 package main;
 
 import java.sql.Connection;
