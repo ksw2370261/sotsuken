@@ -40,21 +40,30 @@ public class RegistExeAction extends Action {
         String dbUser = "teambkazuyoshi";
         String dbPassword = "";
 
-        try (Connection connection = DriverManager.getConnection(url, dbUser, dbPassword)) {
-            RegistDao dao = new RegistDao(connection);
+        try {
+            // H2ドライバのロード
+            Class.forName("org.h2.Driver"); // 追加: ドライバのロード
 
-            // 登録処理の実行
-            boolean isRegistered = dao.save(admin);
+            try (Connection connection = DriverManager.getConnection(url, dbUser, dbPassword)) {
+                RegistDao dao = new RegistDao(connection);
 
-            if (isRegistered) {
-                // 登録成功時の処理
-                session.setAttribute("message", "登録が完了しました。");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-            } else {
-                // 重複エラーの処理
-                request.setAttribute("error", "このIDはすでに存在します。");
-                request.getRequestDispatcher("regist.jsp").forward(request, response);
+                // 登録処理の実行
+                boolean isRegistered = dao.save(admin);
+
+                if (isRegistered) {
+                    // 登録成功時の処理
+                    session.setAttribute("message", "登録が完了しました。");
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
+                } else {
+                    // 重複エラーの処理
+                    request.setAttribute("error", "このIDはすでに存在します。");
+                    request.getRequestDispatcher("regist.jsp").forward(request, response);
+                }
             }
+        } catch (ClassNotFoundException e) {
+            logger.log(Level.SEVERE, "JDBC Driver not found: " + e.getMessage(), e);
+            request.setAttribute("error", "・システムエラーが発生しました。もう一度お試しください。");
+            request.getRequestDispatcher("admin_error.jsp").forward(request, response);
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Admin registration failed: " + e.getMessage(), e);
             request.setAttribute("error", "・システムエラーが発生しました。もう一度お試しください。");
