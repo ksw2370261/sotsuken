@@ -3,7 +3,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>MICHISADA-新規登録</title>
+    <title>CampusMap-新規登録</title>
     <!-- 共通スタイルを定義 -->
     <style>
         /* 既存のスタイル */

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>イベント投稿画面</title>
+    <title>CampusMap-イベント投稿画面</title>
 </head>
 <body>
     <!-- メインコンテンツ -->
@@ -12,7 +12,7 @@
             <!-- イベント投稿フォーム -->
         <form action="EventPostExe.action" method="post">
         <!-- 戻るリンク -->
-        <a href="admin_menu.jsp">戻る</a><br><br>
+        <a href="AdminMenu.action">戻る</a><br><br>
 
 
             <div class="form-group">
