@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>MICHISADA-ログイン</title>
+    <title>CampusMap-ログイン</title>
     <!-- 共通スタイルを定義 -->
     <style>
         body {

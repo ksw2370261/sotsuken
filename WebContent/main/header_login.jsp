@@ -8,32 +8,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         header {
-            background-color: #d3d3d3; /* ヘッダーの背景色 */
-            padding: 10px; /* パディングを少し増やす */
+        	color: #036635;
+            padding: 1px; /* パディングを少し増やす */
             display: flex;
             justify-content: space-between; /* 左右に要素を配置 */
             align-items: center; /* 垂直方向に中央揃え */
             z-index: 1000; /* 上層に表示 */
+            font-size: 23px;
         }
 
         .logout-btn {
+        	color: #111111;
+        	font-size: 18px;
             border: none;
             padding: 8px 16px; /* ボタンのパディングを調整 */
             cursor: pointer;
             font-weight: bold;
             border-radius: 5px;
             text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .logout-btn:hover {
+        	color: #036635;
         }
 
         .id {
-            margin-left: 750px; /* ログアウトボタンとの間のマージンを小さくする */
             font-weight: bold; /* IDを太字に */
+            color: #111111;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1> MICHISADA ミチサダ </h1>
+        <h1> Campus Map </h1>
 
         <span class="id">
             <%
@@ -42,9 +50,8 @@
                     out.print(ID);  // ユーザーIDのみを表示
                 }
             %>
+            <a href="logout.jsp" class="logout-btn">ログアウト</a>
         </span>
-
-        <a href="logout.jsp" class="logout-btn">ログアウト</a>
     </header>
 </body>
 </html>

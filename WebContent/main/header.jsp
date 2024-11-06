@@ -8,12 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
 		header {
-	        background-color: #d3d3d3; /* ヘッダーの背景色 */
-	        padding: 0.05px;
+        	color: #800000;
+            padding: 10px; /* パディングを少し増やす */
+            display: flex;
+            justify-content: space-between; /* 左右に要素を配置 */
+            align-items: center; /* 垂直方向に中央揃え */
+            z-index: 1000; /* 上層に表示 */
+            font-size: 23px;
         }
     </style>
 </head>
 <body>
     <header>
-    	<h1>　MICHISADA ミチサダ</h1>
+    	<h1> Campus Map </h1>
     </header>
