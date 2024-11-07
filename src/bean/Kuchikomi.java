@@ -1,17 +1,19 @@
 package bean;
+
 import java.sql.Timestamp;
 
 public class Kuchikomi {
-    private String kuchikomi_id;
+    private String kuchikomi_id;   // String型に変更
     private String kuchikomi_content;
-    private Timestamp kuchikomi_time; // 修正点
+    private Timestamp kuchikomi_time;
 
+    // Getter と Setter
     public String getKuchikomi_id() {
         return kuchikomi_id;
     }
 
-    public void setKuchikomi_id(String kuchikomi_id) {
-        this.kuchikomi_id = kuchikomi_id;
+    public void setKuchikomi_id(String kuchikomiId) {  // 引数も String 型に
+        this.kuchikomi_id = kuchikomiId;
     }
 
     public String getKuchikomi_content() {
