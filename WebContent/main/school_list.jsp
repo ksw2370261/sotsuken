@@ -50,8 +50,6 @@
             width: 200px;
             text-align: center;
             transition: background-color 0.3s;
-
-            /* テキストが10文字を超える場合に省略するスタイル */
             white-space: nowrap;          /* 改行させない */
             overflow: hidden;             /* 溢れたテキストを隠す */
             text-overflow: ellipsis;      /* 省略記号(...)を表示 */
@@ -67,9 +65,9 @@
     <div class="list-container">
         <ul>
             <%
-                // Actionクラスから渡されたschool_nameリストを取得し、1件ずつ表示
+                // Actionクラスまたはサーブレットから渡されたschool_nameリストを取得し、1件ずつ表示
                 List<String> schoolNames = (List<String>) request.getAttribute("schoolNames");
-                if (schoolNames != null) {
+                if (schoolNames != null && !schoolNames.isEmpty()) {
                     for (String name : schoolNames) {
             %>
                         <li><%= name %></li>
