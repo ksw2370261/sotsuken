@@ -8,7 +8,7 @@
         text-align: center;
         position: fixed; /* フッターを固定 */
 		bottom: 0; /* 画面の下部に配置 */
-		width: 97%;
+		width: 100%;
     }
 </style>
     <footer>

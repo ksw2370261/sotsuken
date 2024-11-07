@@ -5,6 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <title>CampusMap-イベント投稿画面</title>
+    <style>
+    	body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5fffa;
+        }
+    </style>
 </head>
 <body>
     <!-- メインコンテンツ -->

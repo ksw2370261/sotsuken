@@ -41,7 +41,7 @@
 </head>
 <body>
     <header>
-        <h1> Campus Map </h1>
+        <h1> 　Campus Map </h1>
 
         <span class="id">
             <%
