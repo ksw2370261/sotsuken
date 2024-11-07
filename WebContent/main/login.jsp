@@ -81,7 +81,7 @@
 
         <form action="LoginExe.action" method="post">
             <div class="id">
-                <input type="text" name="id" id="id" placeholder="ID　　　　　　半角でご入力ください" required>
+                <input type="text" name="admin_id" id="id" placeholder="ID　　　　　　半角でご入力ください" required>
             </div>
 
             <div class="pass">

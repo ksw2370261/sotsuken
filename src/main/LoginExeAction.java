@@ -14,23 +14,23 @@ public class LoginExeAction extends Action {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();
 
-        String id = request.getParameter("id");
+        String admin_id = request.getParameter("admin_id");
         String password = request.getParameter("password");
 
         // 入力チェック
-        if (id == null || password == null || id.isEmpty() || password.isEmpty()) {
+        if (admin_id == null || password == null || admin_id.isEmpty() || password.isEmpty()) {
             request.setAttribute("error", "IDまたはパスワードが入力されていません。");
             return;
         }
 
         // DAOのインスタンス生成
         LoginDao dao = new LoginDao();
-            Admin login = dao.search(id, password);
+            Admin login = dao.search(admin_id, password);
 
             if (login != null) {
                 // ログイン成功時の処理
                 session.setAttribute("login", login);
-                session.setAttribute("ID", login.getId());  // ユーザーIDをセッションに保存
+                session.setAttribute("ADMIN_ID", login.getId());  // ユーザーIDをセッションに保存
                 request.getRequestDispatcher("admin_menu.jsp").forward(request, response);
             } else {
                 // ログイン失敗時の処理

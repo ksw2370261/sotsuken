@@ -45,9 +45,9 @@
 
         <span class="id">
             <%
-                String ID = (String) session.getAttribute("ID");
-                if (ID != null) {
-                    out.print(ID);  // ユーザーIDのみを表示
+                String admin_ID = (String) session.getAttribute("ADMIN_ID");
+                if (admin_ID != null) {
+                    out.print(admin_ID);  // ユーザーIDのみを表示
                 }
             %>
             <a href="logout.jsp" class="logout-btn">ログアウト</a>

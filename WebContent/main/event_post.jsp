@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0px 0px 100px 0px;
             background-color: #f5fffa;
         }
 
@@ -17,7 +17,7 @@
             align-items: center;
             margin: 20px auto;
             padding: 1rem 3rem;
-            width: 220px;
+            width: 200px;
             color: #036635;
             border-radius: 100vh;
             background-color: #ffffff;
@@ -82,7 +82,7 @@
         }
 
         .btn-container input[type="submit"]:hover {
-            background-color: #e0f7fa;
+            background-color: #3cb371;
         }
 
         a {
@@ -94,6 +94,27 @@
         a:hover {
             color: #e0f7fa;
         }
+
+        .btn-back {
+		    display: inline-block;
+		    background-color: #036635;
+		    color: white;
+		    padding: 10px 20px;
+		    border-radius: 5px;
+		    text-align: center;
+		    text-decoration: none;
+		    font-size: 16px;
+		    font-weight: bold;
+		    cursor: pointer;
+		    transition: background-color 0.3s;
+		    margin-bottom: 20px;
+		}
+
+		.btn-back:hover {
+		    background-color: #3cb371;
+		    color: #ffffff;
+		}
+
     </style>
 </head>
 
@@ -104,7 +125,7 @@
         <!-- イベント投稿フォーム -->
         <form action="EventPostExe.action" method="post">
             <!-- 戻るリンク -->
-            <a href="AdminMenu.action">戻る</a><br><br>
+            <a href="AdminMenu.action" class="btn-back">戻る</a>
 
             <div class="form-group">
                 <label for="event_date">日付:</label>
