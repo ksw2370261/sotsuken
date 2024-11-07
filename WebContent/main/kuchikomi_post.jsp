@@ -17,11 +17,7 @@
 
         <!-- 口コミ投稿フォーム -->
         <form action="KuchikomiPostExe.action" method="post">
-            <div class="form-group">
-                <label for="kuchikomi_id">口コミID:</label>
-                <input type="text" id="kuchikomi_id" name="kuchikomi_id" required />
-            </div>
-
+            <!-- 口コミ内容 -->
             <div class="form-group">
                 <label for="kuchikomi_content">口コミ内容:</label>
                 <textarea id="kuchikomi_content" name="kuchikomi_content" rows="4" required></textarea>
