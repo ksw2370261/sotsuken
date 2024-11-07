@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
 		header {
-        	color: #800000;
-            padding: 10px; /* パディングを少し増やす */
+        	color: #036635;
+            padding: 1px; /* パディングを少し増やす */
             display: flex;
             justify-content: space-between; /* 左右に要素を配置 */
             align-items: center; /* 垂直方向に中央揃え */
@@ -20,5 +20,5 @@
 </head>
 <body>
     <header>
-    	<h1> Campus Map </h1>
+    	<h1> 　Campus Map </h1>
     </header>

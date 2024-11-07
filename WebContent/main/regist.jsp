@@ -11,12 +11,12 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #f5fffa;
         }
         .content {
             width: 100%;
             max-width: 600px;
-            margin: 50px auto;
+            margin: auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;

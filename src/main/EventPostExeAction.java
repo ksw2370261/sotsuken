@@ -20,7 +20,8 @@ public class EventPostExeAction extends Action {
 
     // executeメソッド：フォームからのデータを使ってイベントを登録する処理
     public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        HttpSession session = request.getSession();
+    	request.setCharacterEncoding("UTF-8");
+    	HttpSession session = request.getSession();
 
         // フォームから送信されたイベント情報を取得
         String eventDate = request.getParameter("event_date");

@@ -11,13 +11,13 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #f5fffa;
         }
 
         .content {
             width: 100%;
             max-width: 600px;
-            margin: 50px auto;
+            margin: auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
@@ -81,7 +81,7 @@
 
         <form action="LoginExe.action" method="post">
             <div class="id">
-                <input type="text" name="id" id="id" placeholder="ID　　　　　　半角でご入力ください" required>
+                <input type="text" name="admin_id" id="id" placeholder="ID　　　　　　半角でご入力ください" required>
             </div>
 
             <div class="pass">

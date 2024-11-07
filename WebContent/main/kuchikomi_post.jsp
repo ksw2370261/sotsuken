@@ -1,4 +1,3 @@
-<!-- 利用者メニュー -->
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="header_login.jsp" %>
 
@@ -18,12 +17,13 @@
 
         <!-- 口コミ投稿フォーム -->
         <form action="KuchikomiPostExe.action" method="post">
+            <!-- 口コミ内容 -->
             <div class="form-group">
-                <label for="kuchikomi_post">口コミ内容:</label>
-                <textarea id="kuchikomi_post" name="kuchikomi_post" rows="4" required></textarea>
+                <label for="kuchikomi_content">口コミ内容:</label>
+                <textarea id="kuchikomi_content" name="kuchikomi_content" rows="4" required></textarea>
             </div>
 
-            <!-- 送信ボタン -->
+            <!-- 投稿ボタン -->
             <div class="btn-container">
                 <input type="submit" value="投稿">
             </div>
