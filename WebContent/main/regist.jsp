@@ -16,7 +16,7 @@
         .content {
             width: 100%;
             max-width: 600px;
-            margin: 50px auto;
+            margin: auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
