@@ -3,32 +3,32 @@ package bean;
 import java.sql.Timestamp;
 
 public class Kuchikomi {
-    private String kuchikomi_id;   // String型に変更
-    private String kuchikomi_content;
-    private Timestamp kuchikomi_time;
+    private int kuchikomiCd;          // `kuchikomi_cd` に対応
+    private String kuchikomiContent;  // `kuchikomi_content` に対応
+    private Timestamp kuchikomiTime;  // `kuchikomi_time` に対応
 
     // Getter と Setter
-    public String getKuchikomi_id() {
-        return kuchikomi_id;
+    public int getKuchikomiCd() {
+        return kuchikomiCd;
     }
 
-    public void setKuchikomi_id(String kuchikomiId) {  // 引数も String 型に
-        this.kuchikomi_id = kuchikomiId;
+    public void setKuchikomiCd(int kuchikomiCd) {
+        this.kuchikomiCd = kuchikomiCd;
     }
 
-    public String getKuchikomi_content() {
-        return kuchikomi_content;
+    public String getKuchikomiContent() {
+        return kuchikomiContent;
     }
 
-    public void setKuchikomi_content(String kuchikomi_content) {
-        this.kuchikomi_content = kuchikomi_content;
+    public void setKuchikomiContent(String kuchikomiContent) {
+        this.kuchikomiContent = kuchikomiContent;
     }
 
-    public Timestamp getKuchikomi_time() {
-        return kuchikomi_time;
+    public Timestamp getKuchikomiTime() {
+        return kuchikomiTime;
     }
 
-    public void setKuchikomi_time(Timestamp kuchikomi_time) {
-        this.kuchikomi_time = kuchikomi_time;
+    public void setKuchikomiTime(Timestamp kuchikomiTime) {
+        this.kuchikomiTime = kuchikomiTime;
     }
 }

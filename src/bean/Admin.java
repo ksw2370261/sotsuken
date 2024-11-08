@@ -1,17 +1,17 @@
-//Admin.java
+// Admin.java
 
 package bean;
 
 public class Admin {
-	private String id;
+	private String admin_Id;  // データベースのカラム名に合わせて変更
 	private String password;
 
-	public String getId() {
-		return id;
+	public String getAdmin_Id() {
+		return admin_Id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setAdmin_Id(String admin_Id) {
+		this.admin_Id = admin_Id;
 	}
 
 	public String getPassword() {

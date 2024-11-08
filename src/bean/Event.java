@@ -1,72 +1,84 @@
-
 package bean;
 
 // Eventクラスはイベントに関する情報を保持するためのJavaBeansクラスです。
 // このクラスはjava.io.Serializableインターフェースを実装し、シリアル化が可能です。
 public class Event implements java.io.Serializable {
 
+	// イベントコード（主キー）を格納するフィールド
+	private int eventCd;
+
 	// イベントの日付を格納するフィールド
-	private String event_date;
+	private String eventDate;
 
 	// イベントの時間を格納するフィールド
-	private String event_time;
+	private String eventTime;
 
 	// イベントの場所を格納するフィールド
-	private String event_location;
+	private String eventLocation;
 
 	// イベントの名前を格納するフィールド
-	private String event_name;
+	private String eventName;
 
-	// イベントの説明を格納するフィールド
-	private String event_description;
+	// イベントの内容を格納するフィールド
+	private String eventContent;
 
-	// event_dateフィールドの値を返すgetterメソッド
-	public String getEvent_date() {
-		return event_date;
+	// eventCdフィールドの値を返すgetterメソッド
+	public int getEventCd() {
+		return eventCd;
 	}
 
-	// event_timeフィールドの値を返すgetterメソッド
-	public String getEvent_time() {
-		return event_time;
+	// eventDateフィールドの値を返すgetterメソッド
+	public String getEventDate() {
+		return eventDate;
 	}
 
-	// event_locationフィールドの値を返すgetterメソッド
-	public String getEvent_location() {
-		return event_location;
+	// eventTimeフィールドの値を返すgetterメソッド
+	public String getEventTime() {
+		return eventTime;
 	}
 
-	// event_nameフィールドの値を返すgetterメソッド
-	public String getEvent_name() {
-		return event_name;
+	// eventLocationフィールドの値を返すgetterメソッド
+	public String getEventLocation() {
+		return eventLocation;
 	}
 
-	// event_descriptionフィールドの値を返すgetterメソッド
-	public String getEvent_description() {
-		return event_description;
+	// eventNameフィールドの値を返すgetterメソッド
+	public String getEventName() {
+		return eventName;
 	}
 
-	// event_dateフィールドの値を設定するsetterメソッド
-	public void setEvent_date(String event_date) {
-		this.event_date = event_date;
+	// eventContentフィールドの値を返すgetterメソッド
+	public String getEventContent() {
+		return eventContent;
 	}
 
-	// event_timeフィールドの値を設定するsetterメソッド
-	public void setEvent_time(String event_time) {
-		this.event_time = event_time;
+	// eventCdフィールドの値を設定するsetterメソッド
+	public void setEventCd(int eventCd) {
+		this.eventCd = eventCd;
 	}
 
-	// event_locationフィールドの値を設定するsetterメソッド
-	public void setEvent_location(String event_location) {
-		this.event_location = event_location;
+	// eventDateフィールドの値を設定するsetterメソッド
+	public void setEventDate(String eventDate) {
+		this.eventDate = eventDate;
 	}
 
-	// event_nameフィールドの値を設定するsetterメソッド
-	public void setEvent_name(String event_name) {
-		this.event_name = event_name;
+	// eventTimeフィールドの値を設定するsetterメソッド
+	public void setEventTime(String eventTime) {
+		this.eventTime = eventTime;
 	}
 
-	// event_descriptionフィールドの値を設定するsetterメソッド
-	public void setEvent_description(String event_description) {
-		this.event_description = event_description;
+	// eventLocationフィールドの値を設定するsetterメソッド
+	public void setEventLocation(String eventLocation) {
+		this.eventLocation = eventLocation;
+	}
+
+	// eventNameフィールドの値を設定するsetterメソッド
+	public void setEventName(String eventName) {
+		this.eventName = eventName;
+	}
+
+	// eventContentフィールドの値を設定するsetterメソッド
+	public void setEventContent(String eventContent) {
+		this.eventContent = eventContent;
 	}
 }

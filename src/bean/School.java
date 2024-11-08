@@ -1,33 +1,24 @@
 package bean;
 
 public class School implements java.io.Serializable {
-	private String id;
-	private String school_id;
-	private String school_name;
+	private int schoolCd;         // `school_cd` に対応
+	private String schoolName;    // `school_name` に対応
 
-
-	public String getId() {
-		return id;
+	// Getter メソッド
+	public int getSchoolCd() {
+		return schoolCd;
 	}
 
-	public String getSchool_id() {
-		return school_id;
+	public String getSchoolName() {
+		return schoolName;
 	}
 
-	public String getSchool_name() {
-		return school_name;
+	// Setter メソッド
+	public void setSchoolCd(int schoolCd) {
+		this.schoolCd = schoolCd;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public void setSchool_id(String school_id) {
-		this.school_id = school_id;
-	}
-
-	public void setSchool_name(String school_name) {
-		this.school_name = school_name;
+	public void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
 	}
 }
-
