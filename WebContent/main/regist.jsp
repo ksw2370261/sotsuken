@@ -16,7 +16,7 @@
         .content {
             width: 100%;
             max-width: 600px;
-            margin: auto;
+            margin: auto auto 100px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
@@ -88,11 +88,15 @@
 
         <form action="RegistExe.action" method="post">
             <div class="id">
-                <input type="text" name="id" id="login" placeholder="ID　　　　　　半角でご入力ください" required>
+                <input type="text" name="id" id="login" placeholder="ID" required>
             </div>
 
             <div class="pass">
-                <input type="password" name="password" placeholder="パスワード　　20文字以内の半角英数字でご入力ください">
+                <input type="password" name="password" placeholder="パスワード">
+            </div>
+
+            <div class="school-name">
+                <input type="text" name="school-name" placeholder="学校名">
             </div>
 
             <div>
