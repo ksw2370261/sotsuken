@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Admin;
+import bean.School;
 import dao.RegistDao;
 import tool.Action;
 
@@ -18,22 +19,28 @@ public class RegistExeAction extends Action {
     private static final Logger logger = Logger.getLogger(RegistExeAction.class.getName());
 
     public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
 
-        String id = request.getParameter("id");
+        String admin_id = request.getParameter("admin_id");
         String password = request.getParameter("password");
+        String schoolName = request.getParameter("school_name"); // 追加: school_name の入力を受け取る
 
         // 入力チェック
-        if (id == null || password == null || id.isEmpty() || password.isEmpty()) {
-            request.setAttribute("error", "IDまたはパスワードが入力されていません。");
-            request.getRequestDispatcher("register.jsp").forward(request, response);
+        if (admin_id == null || password == null || schoolName == null || admin_id.isEmpty() || password.isEmpty() || schoolName.isEmpty()) {
+            request.setAttribute("error", "ID、パスワード、または学校名が入力されていません。");
+            request.getRequestDispatcher("admin_error.jsp").forward(request, response);
             return;
         }
 
-        // Adminオブジェクトを生成し、入力データを設定
+        // Admin オブジェクトを生成し、入力データを設定
         Admin admin = new Admin();
-        admin.setId(id);
+        admin.setAdmin_Id(admin_id);
         admin.setPassword(password);
+
+        // School オブジェクトを生成し、学校名を設定
+        School school = new School();
+        school.setSchoolName(schoolName);
 
         // データベース接続の設定
         String url = "jdbc:h2:~/teambkazuyoshi";
@@ -48,7 +55,7 @@ public class RegistExeAction extends Action {
                 RegistDao dao = new RegistDao(connection);
 
                 // 登録処理の実行
-                boolean isRegistered = dao.save(admin);
+                boolean isRegistered = dao.save(admin, school);
 
                 if (isRegistered) {
                     // 登録成功時の処理

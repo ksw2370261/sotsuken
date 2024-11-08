@@ -87,20 +87,20 @@
         <% } %>
 
         <form action="RegistExe.action" method="post">
-            <div class="id">
-                <input type="text" name="id" id="login" placeholder="ID" required>
+            <div class="admin-id">
+                <input type="text" name="admin_id" id="login" placeholder="ID" required>
             </div>
 
             <div class="pass">
-                <input type="password" name="password" placeholder="パスワード">
+                <input type="password" name="password" placeholder="パスワード" required>
             </div>
 
             <div class="school-name">
-                <input type="text" name="school-name" placeholder="学校名">
+                <input type="text" name="school_name" placeholder="学校名" required>
             </div>
 
             <div>
-                <button name="register">新規登録</button>
+                <button type="submit" name="register">新規登録</button>
             </div>
         </form>
 
