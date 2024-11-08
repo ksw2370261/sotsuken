@@ -1,4 +1,4 @@
-//LoginDao.java
+// LoginDao.java
 
 package dao;
 
@@ -8,26 +8,24 @@ import java.sql.ResultSet;
 
 import bean.Admin;
 
-public class LoginDao extends Dao{
-	public Admin search(String admin_id, String password)
-	throws Exception{
-		Admin Login=null;
+public class LoginDao extends Dao {
+    // IDのみで検索するメソッドを追加
+    public Admin searchById(String admin_id) throws Exception {
+        Admin login = null;
 
-		Connection con=getConnection();
+        Connection con = getConnection();
+        PreparedStatement st = con.prepareStatement("SELECT * FROM admin WHERE admin_id = ?");
+        st.setString(1, admin_id);
+        ResultSet rs = st.executeQuery();
 
-		PreparedStatement st;
-		st=con.prepareStatement("select * from admin where admin_id=? and password=?");
-		st.setString(1, admin_id);
-		st.setString(2, password);
-		ResultSet rs=st.executeQuery();
+        if (rs.next()) {
+            login = new Admin();
+            login.setAdmin_Id(rs.getString("admin_id"));
+            login.setPassword(rs.getString("password"));
+        }
 
-		while (rs.next()){
-			Login=new Admin();
-			Login.setAdmin_Id(rs.getString("admin_id"));
-			Login.setPassword(rs.getString("password"));
-		}
-		st.close();
-		con.close();
-		return Login;
-	}
+        st.close();
+        con.close();
+        return login;
+    }
 }

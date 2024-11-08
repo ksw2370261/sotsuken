@@ -88,11 +88,11 @@
 
         <form action="RegistExe.action" method="post">
             <div class="admin-id">
-                <input type="text" name="admin_id" id="login" placeholder="ID" required>
+                <input type="text" name="admin_id" id="login" placeholder="ID　　　　　　半角英数字でご入力ください" required pattern="^[a-zA-Z0-9]+$" title="半角英数字のみ入力可能">
             </div>
 
             <div class="pass">
-                <input type="password" name="password" placeholder="パスワード" required>
+                <input type="password" name="password" placeholder="パスワード　　半角英数字でご入力ください" required pattern="^[a-zA-Z0-9]+$" title="半角英数字のみ入力可能">
             </div>
 
             <div class="school-name">

@@ -1,4 +1,4 @@
-//LoginExeAction.java
+// LoginExeAction.java
 
 package main;
 
@@ -20,23 +20,27 @@ public class LoginExeAction extends Action {
         // 入力チェック
         if (admin_id == null || password == null || admin_id.isEmpty() || password.isEmpty()) {
             request.setAttribute("error", "IDまたはパスワードが入力されていません。");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
             return;
         }
 
         // DAOのインスタンス生成
         LoginDao dao = new LoginDao();
-            Admin login = dao.search(admin_id, password);
+        Admin login = dao.searchById(admin_id);
 
-            if (login != null) {
-                // ログイン成功時の処理
-                session.setAttribute("login", login);
-                session.setAttribute("ADMIN_ID", login.getAdmin_Id());  // ユーザーIDをセッションに保存
-                request.getRequestDispatcher("admin_menu.jsp").forward(request, response);
-            } else {
-                // ログイン失敗時の処理
-                request.setAttribute("error", "・  ログインに失敗しました。IDまたはパスワードが正しくありません。");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-            }
-
+        if (login == null) {
+            // IDが存在しない場合のエラー処理
+            request.setAttribute("error", "IDが間違っています。");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        } else if (!login.getPassword().equals(password)) {
+            // パスワードが間違っている場合のエラー処理
+            request.setAttribute("error", "パスワードが間違っています。");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        } else {
+            // ログイン成功時の処理
+            session.setAttribute("login", login);
+            session.setAttribute("ADMIN_ID", login.getAdmin_Id());  // ユーザーIDをセッションに保存
+            request.getRequestDispatcher("admin_menu.jsp").forward(request, response);
+        }
     }
 }

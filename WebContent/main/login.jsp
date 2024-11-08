@@ -1,12 +1,10 @@
-<!-- ログイン.jsp -->
-
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <title>CampusMap-ログイン</title>
-    <!-- 共通スタイルを定義 -->
     <style>
+        /* 共通スタイル */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -34,12 +32,12 @@
         input[type="text"],
         input[type="password"] {
             width: 100%;
-            padding: 10px 12px; /* 上下の余白を10px、左右の余白を12pxに設定 */
+            padding: 10px 12px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
-            box-sizing: border-box; /* パディングを含めて幅を計算 */
+            box-sizing: border-box;
         }
 
         button {
@@ -71,6 +69,14 @@
         .register-link a:hover {
             text-decoration: underline;
         }
+
+        /* エラーメッセージのスタイル */
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -79,13 +85,18 @@
     <div class="content">
         <h2>ログイン</h2>
 
+        <!-- エラーメッセージを表示 -->
+        <div class="error-message">
+            <%= request.getAttribute("error") != null ? request.getAttribute("error") : "" %>
+        </div>
+
         <form action="LoginExe.action" method="post">
             <div class="id">
-                <input type="text" name="admin_id" id="id" placeholder="ID　　　　　　半角でご入力ください" required>
+                <input type="text" name="admin_id" id="id" placeholder="ID　　　　　　半角英数字でご入力ください" required pattern="^[a-zA-Z0-9]+$" title="半角英数字のみ入力可能">
             </div>
 
             <div class="pass">
-                <input type="password" name="password" id="password" placeholder="パスワード　　20文字以内の半角英数字でご入力ください">
+                <input type="password" name="password" id="password" placeholder="パスワード　　半角英数字でご入力ください" required pattern="^[a-zA-Z0-9]+$" title="半角英数字のみ入力可能">
             </div>
 
             <div>
