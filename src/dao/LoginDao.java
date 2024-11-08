@@ -23,7 +23,7 @@ public class LoginDao extends Dao{
 
 		while (rs.next()){
 			Login=new Admin();
-			Login.setId(rs.getString("admin_id"));
+			Login.setAdmin_Id(rs.getString("admin_id"));
 			Login.setPassword(rs.getString("password"));
 		}
 		st.close();
