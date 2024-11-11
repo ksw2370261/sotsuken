@@ -40,6 +40,9 @@
         }
 
         li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             background-color: #ffffff;
             color: #036635;
             font-weight: bold;
@@ -47,16 +50,31 @@
             margin: 10px;
             border-radius: 8px;
             border: 1px solid #036635;
-            width: 200px;
+            width: 250px;
             text-align: center;
             transition: background-color 0.3s;
-            white-space: nowrap;          /* 改行させない */
-            overflow: hidden;             /* 溢れたテキストを隠す */
-            text-overflow: ellipsis;      /* 省略記号(...)を表示 */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         li:hover {
             background-color: #e0f7fa;
+        }
+
+        .review-button {
+            background-color: #036635;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .review-button:hover {
+            background-color: #025c2f;
         }
     </style>
 </head>
@@ -70,7 +88,12 @@
                 if (schoolNames != null && !schoolNames.isEmpty()) {
                     for (String name : schoolNames) {
             %>
-                        <li><%= name %></li>
+                        <li>
+                            <span><%= name %></span>
+                            <form action="Kuchikomi.action" method="get" style="margin: 0;">
+                                <button type="submit" class="review-button">口コミ</button>
+                            </form>
+                        </li>
             <%
                     }
                 } else {
