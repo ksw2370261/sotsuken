@@ -10,8 +10,8 @@ import java.util.List;
 public class SchoolDao {
 
     // データベース接続情報
-    private static final String URL = "jdbc:h2:~/shusato";
-    private static final String USER = "shusato";
+    private static final String URL = "jdbc:h2:~/teambkazuyoshi";
+    private static final String USER = "teambkazuyoshi";
     private static final String PASSWORD = "";
 
     /**
@@ -26,24 +26,27 @@ public class SchoolDao {
         // SQL文の定義: schoolテーブルからschool_nameカラムのみを取得する
         String sql = "SELECT school_name FROM school";
 
-        // リソースの自動クローズを行うtry-with-resources構文を使用
-        try (
-            // データベース接続を取得
-            Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        try {
+            // H2ドライバをロード
+            Class.forName("org.h2.Driver");
 
-            // SQL文を実行するためのPreparedStatementを作成
-            PreparedStatement pstmt = conn.prepareStatement(sql);
+            // リソースの自動クローズを行うtry-with-resources構文を使用
+            try (
+                // データベース接続を取得
+                Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
-            // クエリを実行し、結果セット(ResultSet)を取得
-            ResultSet rs = pstmt.executeQuery()
-        ) {
+                // SQL文を実行するためのPreparedStatementを作成
+                PreparedStatement pstmt = conn.prepareStatement(sql);
 
-            // 結果セットからschool_nameカラムのデータを1件ずつ取り出す
-            while (rs.next()) {
-                // school_nameカラムのデータをリストに追加
-                schoolNames.add(rs.getString("school_name"));
+                // クエリを実行し、結果セット(ResultSet)を取得
+                ResultSet rs = pstmt.executeQuery()
+            ) {
+                // 結果セットからschool_nameカラムのデータを1件ずつ取り出す
+                while (rs.next()) {
+                    // school_nameカラムのデータをリストに追加
+                    schoolNames.add(rs.getString("school_name"));
+                }
             }
-
         } catch (Exception e) {
             // 例外が発生した場合はエラーメッセージを表示
             e.printStackTrace();
