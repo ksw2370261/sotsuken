@@ -1,3 +1,4 @@
+//Kuchikomi.java
 package bean;
 
 import java.sql.Timestamp;

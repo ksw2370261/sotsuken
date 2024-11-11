@@ -1,3 +1,4 @@
+// SchoolDao.java
 package dao;
 
 import java.sql.Connection;
@@ -7,52 +8,34 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SchoolDao {
+import bean.School;
 
-    // データベース接続情報
-    private static final String URL = "jdbc:h2:~/teambkazuyoshi";
-    private static final String USER = "teambkazuyoshi";
+public class SchoolDao {
+    private static final String URL = "jdbc:h2:~/teambtsubasa";
+    private static final String USER = "teambtsubasa";
     private static final String PASSWORD = "";
 
-    /**
-     * schoolテーブルからすべてのschool_nameを取得するメソッド
-     *
-     * @return List<String> すべてのschool_nameを含むリスト
-     */
-    public List<String> getSchoolNames() {
-        // school_nameを格納するリストを初期化
-        List<String> schoolNames = new ArrayList<>();
-
-        // SQL文の定義: schoolテーブルからschool_nameカラムのみを取得する
-        String sql = "SELECT school_name FROM school";
+    public List<School> getSchools() {
+        List<School> schools = new ArrayList<>();
+        String sql = "SELECT school_cd, school_name FROM school";
 
         try {
-            // H2ドライバをロード
             Class.forName("org.h2.Driver");
+            try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+                 PreparedStatement pstmt = conn.prepareStatement(sql);
+                 ResultSet rs = pstmt.executeQuery()) {
 
-            // リソースの自動クローズを行うtry-with-resources構文を使用
-            try (
-                // データベース接続を取得
-                Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-
-                // SQL文を実行するためのPreparedStatementを作成
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-
-                // クエリを実行し、結果セット(ResultSet)を取得
-                ResultSet rs = pstmt.executeQuery()
-            ) {
-                // 結果セットからschool_nameカラムのデータを1件ずつ取り出す
                 while (rs.next()) {
-                    // school_nameカラムのデータをリストに追加
-                    schoolNames.add(rs.getString("school_name"));
+                    School school = new School();
+                    school.setSchoolCd(rs.getInt("school_cd"));
+                    school.setSchoolName(rs.getString("school_name"));
+                    schools.add(school);
                 }
             }
         } catch (Exception e) {
-            // 例外が発生した場合はエラーメッセージを表示
             e.printStackTrace();
         }
 
-        // 取得したschool_nameのリストを返す
-        return schoolNames;
+        return schools;
     }
 }

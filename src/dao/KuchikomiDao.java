@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -9,51 +10,41 @@ import java.util.List;
 import bean.Kuchikomi;
 
 public class KuchikomiDao {
-    private Connection connection;
+    private static final String URL = "jdbc:h2:~/teambtsubasa";  // 適切なJDBC URLを指定
+    private static final String USER = "teambtsubasa";           // データベースのユーザー名
+    private static final String PASSWORD = "";                   // データベースのパスワード
 
-    // Connectionを受け取るコンストラクタ
-    public KuchikomiDao(Connection connection) {
-        this.connection = connection;
-    }
-
-    // 口コミを全件取得するメソッド
-    public List<Kuchikomi> getAllKuchikomi() throws Exception {
+    // 学校コードに基づいて口コミを取得するメソッド
+    public List<Kuchikomi> getKuchikomiBySchoolCd(int schoolCd) {
         List<Kuchikomi> kuchikomiList = new ArrayList<>();
-        String sql = "SELECT * FROM kuchikomi ORDER BY kuchikomi_time DESC"; // SQL文
+        String sql = "SELECT kuchikomi_cd, kuchikomi_content, kuchikomi_time FROM kuchikomi WHERE school_cd = ? ORDER BY kuchikomi_time DESC";
 
-        try (PreparedStatement ps = connection.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
-            while (rs.next()) {
-                Kuchikomi kuchikomi = new Kuchikomi();
-                kuchikomi.setKuchikomi_id(rs.getString("kuchikomi_id"));
-                kuchikomi.setKuchikomi_content(rs.getString("kuchikomi_content"));
-                kuchikomi.setKuchikomi_time(rs.getTimestamp("kuchikomi_time"));
-                kuchikomiList.add(kuchikomi);
+        try {
+            // JDBCドライバの読み込み
+            Class.forName("org.h2.Driver");
+
+            // データベース接続
+            try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+                // schoolCdをクエリに設定
+                pstmt.setInt(1, schoolCd);
+
+                // クエリを実行し、結果セットを取得
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    while (rs.next()) {
+                        Kuchikomi kuchikomi = new Kuchikomi();
+                        kuchikomi.setKuchikomiCd(rs.getInt("kuchikomi_cd"));
+                        kuchikomi.setKuchikomiContent(rs.getString("kuchikomi_content"));
+                        kuchikomi.setKuchikomiTime(rs.getTimestamp("kuchikomi_time"));
+                        kuchikomiList.add(kuchikomi);
+                    }
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return kuchikomiList;
-    }
-
-    // 口コミを追加するメソッド
-    public boolean addKuchikomi(Kuchikomi kuchikomi) throws Exception {
-        String sql = "INSERT INTO kuchikomi (kuchikomi_content, kuchikomi_time) VALUES (?, ?)";
-        try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
-            ps.setString(1, kuchikomi.getKuchikomi_content());
-            ps.setTimestamp(2, kuchikomi.getKuchikomi_time());
-
-            int result = ps.executeUpdate();
-            if (result > 0) {
-                try (ResultSet rs = ps.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        // 自動生成された kuchikomi_id を取得
-                        kuchikomi.setKuchikomi_id(rs.getString(1));  // 自動生成されたIDをセット
-                    }
-                }
-                return true;
-            } else {
-                return false;
-            }
-        }
     }
 }

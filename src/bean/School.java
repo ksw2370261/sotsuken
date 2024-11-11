@@ -1,3 +1,4 @@
+//School.java
 package bean;
 
 public class School implements java.io.Serializable {
