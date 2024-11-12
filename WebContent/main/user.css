@@ -1,0 +1,85 @@
+/* 基本的なフォントや背景色 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5fffa;
+}
+
+/* ヘッダーのスタイル */
+h2 {
+    text-align: center;
+    margin: 20px auto;
+    padding: 1rem 3rem;
+    width: 80%; /* 幅を画面の80%に設定 */
+    max-width: 350px; /* 最大幅を350pxに制限 */
+    color: #036635;
+    border-radius: 100vh;
+    background-color: #ffffff;
+    border: 2px solid #036635; /* 緑色の縁 */
+}
+
+/* リストのスタイル */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ボタンのスタイル */
+button {
+    padding: 8px 16px;
+    background-color: #036635;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #024f3d;
+}
+
+/* スマホ用のレスポンシブデザイン */
+@media (max-width: 600px) {
+    h2 {
+        width: 90%; /* 小さな画面では80%を90%に変更 */
+        padding: 0.8rem 2rem;
+    }
+
+    li {
+        padding: 12px;
+        flex-direction: column; /* アイテムを縦に並べる */
+        align-items: flex-start; /* 左寄せにする */
+    }
+
+    button {
+        width: 100%; /* ボタンがリストアイテムの幅いっぱいになる */
+        padding: 12px;
+        margin-top: 10px;
+    }
+}
+
+/* タブレット用 */
+@media (max-width: 768px) {
+    h2 {
+        width: 85%; /* タブレットでも少し広く */
+    }
+
+    button {
+        padding: 10px 20px;
+    }
+}

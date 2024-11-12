@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>学校一覧</title>
+    <link rel="stylesheet" href="user.css">
 </head>
 <body>
     <h2>学校一覧</h2>

@@ -34,7 +34,6 @@
         }
 
         .id {
-            font-weight: bold;
             color: #111111;
         }
     </style>

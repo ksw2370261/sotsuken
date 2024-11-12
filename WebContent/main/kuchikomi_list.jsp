@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>口コミ一覧</title>
+    <link rel="stylesheet" href="user.css">
 </head>
 <body>
     <h2>口コミ一覧</h2>
