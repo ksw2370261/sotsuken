@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>CampusMap-イベント投稿画面</title>
     <style>
-        body {
+            body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0px 0px 100px 0px;
@@ -114,7 +114,7 @@
 		    background-color: #3cb371;
 		    color: #ffffff;
 		}
-
+        /* CSSはそのまま使用 */
     </style>
 </head>
 
@@ -148,8 +148,8 @@
             </div>
 
             <div class="form-group">
-                <label for="event_description">イベント内容:</label>
-                <textarea id="event_description" name="event_description" rows="4"></textarea>
+                <label for="event_content">イベント内容:</label>
+                <textarea id="event_content" name="event_content" rows="4"></textarea>
             </div>
 
             <!-- 送信ボタン -->
@@ -160,5 +160,3 @@
     </div>
 
 <%@ include file="footer.jsp" %>
-
-

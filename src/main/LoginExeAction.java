@@ -1,5 +1,3 @@
-// LoginExeAction.java
-
 package main;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,9 +36,8 @@ public class LoginExeAction extends Action {
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
             // ログイン成功時の処理
-            session.setAttribute("login", login);
-            session.setAttribute("ADMIN_ID", login.getAdmin_Id());  // ユーザーIDをセッションに保存
-            request.getRequestDispatcher("admin_menu.jsp").forward(request, response);
+            session.setAttribute("admin", login);  // セッションにadminオブジェクトを保存
+            response.sendRedirect("admin_menu.jsp");  // 成功時はリダイレクト
         }
     }
 }
