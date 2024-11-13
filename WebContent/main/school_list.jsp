@@ -17,10 +17,11 @@
         %>
                     <li>
                         <span><%= school.getSchoolName() %></span>
-                        <!-- 口コミボタンのフォーム -->
+
+                        <!-- 口コミ閲覧ボタン -->
                         <form action="Kuchikomi.action" method="get" style="display: inline;">
                             <input type="hidden" name="schoolCd" value="<%= school.getSchoolCd() %>">
-                            <button type="submit">口コミ</button>
+                            <button type="submit">口コミ閲覧</button>
                         </form>
                     </li>
         <%

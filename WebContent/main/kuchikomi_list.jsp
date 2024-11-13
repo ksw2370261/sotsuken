@@ -9,6 +9,13 @@
 <body>
     <h2>口コミ一覧</h2>
     <a href="SchoolList.action">戻る</a>
+
+    <!-- 口コミ投稿ボタン -->
+    <form action="KuchikomiPost.action" method="get">
+        <input type="hidden" name="schoolCd" value="<%= request.getParameter("schoolCd") %>">
+        <button type="submit">口コミ投稿</button>
+    </form>
+
     <ul>
         <%
             // リクエスト属性から口コミリストを取得
