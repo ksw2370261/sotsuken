@@ -74,7 +74,7 @@
         </div>
 
         <div class="menu-item3">
-            <a href="">イベント一覧</a>
+            <a href="EventList.action">イベント一覧</a>
         </div>
 
         <div class="menu-item4">
