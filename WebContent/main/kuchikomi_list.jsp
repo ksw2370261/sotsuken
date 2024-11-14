@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="bean.Kuchikomi" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <html>
 <head>
     <title>口コミ一覧</title>
@@ -24,11 +25,17 @@
             // リクエスト属性から口コミリストを取得
             List<Kuchikomi> kuchikomiList = (List<Kuchikomi>) request.getAttribute("kuchikomiList");
             if (kuchikomiList != null && !kuchikomiList.isEmpty()) {
+                // 日時フォーマットを指定 (秒数は省略)
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
                 for (Kuchikomi kuchikomi : kuchikomiList) {
+                    // 口コミ時間をフォーマット
+                    String formattedTime = sdf.format(kuchikomi.getKuchikomiTime());
         %>
                     <li>
-                        <span><%= kuchikomi.getKuchikomiContent() %></span>
-                        <span>(<%= kuchikomi.getKuchikomiTime() %>)</span>
+                        <!-- 口コミ内容 -->
+                        <span class="kuchikomiContent"><%= kuchikomi.getKuchikomiContent() %></span>
+                        <!-- 口コミ時間 (フォーマット後) -->
+                        <span class="kuchikomiTime"><%= formattedTime %></span>
                     </li>
         <%
                 }
