@@ -6,6 +6,13 @@
 </head>
 <body>
     <h2>口コミ投稿</h2>
+
+    <!-- 戻るボタン -->
+    <form action="Kuchikomi.action" method="get">
+        <input type="hidden" name="schoolCd" value="<%= request.getParameter("schoolCd") %>">
+        <button type="submit">戻る</button>
+    </form>
+
     <form action="KuchikomiPostExe.action" method="post">
         <input type="hidden" name="schoolCd" value="<%= request.getParameter("schoolCd") %>">
 

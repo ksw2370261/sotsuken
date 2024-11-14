@@ -8,7 +8,10 @@
 </head>
 <body>
     <h2>口コミ一覧</h2>
-    <a href="SchoolList.action">戻る</a>
+    <!-- 戻るボタン -->
+    <form action="SchoolList.action">
+        <button type="submit">戻る</button>
+    </form>
 
     <!-- 口コミ投稿ボタン -->
     <form action="KuchikomiPost.action" method="get">

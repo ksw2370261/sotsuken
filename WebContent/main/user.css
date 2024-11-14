@@ -4,19 +4,21 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f5fffa;
+    font-size: 1.3rem; /* 基本のフォントサイズをさらに大きく */
 }
 
-/* ヘッダーのスタイル */
+/* タイトルのスタイル */
 h2 {
     text-align: center;
     margin: 20px auto;
-    padding: 1rem 3rem;
+    padding: 1.5rem 4rem; /* パディングも大きく */
     width: 80%; /* 幅を画面の80%に設定 */
-    max-width: 350px; /* 最大幅を350pxに制限 */
+    max-width: 400px; /* 最大幅を400pxに制限 */
     color: #036635;
     border-radius: 100vh;
     background-color: #ffffff;
     border: 2px solid #036635; /* 緑色の縁 */
+    font-size: 2.2rem; /* タイトルのフォントサイズをさらに大きく */
 }
 
 /* リストのスタイル */
@@ -28,25 +30,27 @@ ul {
 
 li {
     background-color: #ffffff;
-    margin: 10px;
-    padding: 15px;
+    margin: 15px;
+    padding: 20px;
     border-radius: 8px;
     border: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1.5rem; /* リストのフォントサイズをさらに大きく */
 }
 
 /* ボタンのスタイル */
 button {
-    padding: 8px 16px;
+    padding: 15px 30px; /* ボタンのパディングをさらに大きく */
     background-color: #036635;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 1.6rem; /* ボタンのフォントサイズを大きく */
 }
 
 button:hover {
@@ -55,21 +59,45 @@ button:hover {
 
 /* スマホ用のレスポンシブデザイン */
 @media (max-width: 600px) {
-    h2 {
-        width: 90%; /* 小さな画面では80%を90%に変更 */
-        padding: 0.8rem 2rem;
+    body {
+        padding: 15px; /* 全体に少し余白を追加 */
+        font-size: 1.5rem; /* スマホの画面ではフォントをさらに大きく */
     }
 
-    li {
-        padding: 12px;
+    h2 {
+        width: 90%; /* 小さな画面では80%を90%に変更 */
+        padding: 1.5rem;
+        font-size: 2.5rem; /* タイトルをさらに大きく */
+    }
+
+    /* 学校名と口コミ閲覧ボタンを縦並びに */
+    ul li {
+        padding: 22px;
         flex-direction: column; /* アイテムを縦に並べる */
         align-items: flex-start; /* 左寄せにする */
+        font-size: 1.6rem; /* リストの文字をさらに大きく */
     }
 
     button {
         width: 100%; /* ボタンがリストアイテムの幅いっぱいになる */
-        padding: 12px;
-        margin-top: 10px;
+        padding: 18px;
+        margin-top: 12px;
+        font-size: 1.8rem; /* ボタン文字をさらに大きく */
+    }
+
+    /* 戻るボタンも同様に大きくして見やすく */
+    form button {
+        width: 100%;
+        padding: 18px;
+        font-size: 1.8rem;
+    }
+
+    /* 口コミ投稿フォーム */
+    textarea {
+        width: 100%;
+        padding: 18px;
+        margin-top: 12px;
+        font-size: 1.6rem; /* テキストエリア内の文字も大きく */
     }
 }
 
@@ -77,9 +105,11 @@ button:hover {
 @media (max-width: 768px) {
     h2 {
         width: 85%; /* タブレットでも少し広く */
+        font-size: 2.2rem; /* タブレットのタイトルをさらに大きく */
     }
 
     button {
-        padding: 10px 20px;
+        padding: 18px 35px; /* タブレット用にさらに大きく */
+        font-size: 1.7rem; /* ボタン文字をタブレット向けにさらに大きく */
     }
 }
