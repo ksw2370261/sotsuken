@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>CampusMap-イベント投稿画面</title>
     <style>
-            body {
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0px 0px 100px 0px;

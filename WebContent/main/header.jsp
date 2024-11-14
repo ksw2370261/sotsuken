@@ -15,6 +15,7 @@
             align-items: center; /* 垂直方向に中央揃え */
             z-index: 1000; /* 上層に表示 */
             font-size: 23px;
+            margin-left: 20px;
         }
     </style>
 </head>

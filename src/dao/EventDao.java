@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import bean.Event;
 
@@ -48,5 +50,27 @@ public class EventDao {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public List<Event> getEventsBySchoolCd(Integer schoolCd) {
+        List<Event> events = new ArrayList<>();
+        String sql = "SELECT * FROM event WHERE school_cd = ? ORDER BY event_date, event_time";
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, schoolCd);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Event event = new Event();
+                event.setEventCd(rs.getInt("event_cd"));
+                event.setEventDate(rs.getString("event_date"));
+                event.setEventTime(rs.getString("event_time"));
+                event.setEventLocation(rs.getString("event_location"));
+                event.setEventName(rs.getString("event_name"));
+                event.setEventContent(rs.getString("event_content"));
+                events.add(event);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return events;
     }
 }
