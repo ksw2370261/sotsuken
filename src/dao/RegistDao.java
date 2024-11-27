@@ -55,3 +55,4 @@ public class RegistDao {
         return false;
     }
 }
+

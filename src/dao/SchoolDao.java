@@ -11,8 +11,8 @@ import java.util.List;
 import bean.School;
 
 public class SchoolDao {
-    private static final String URL = "jdbc:h2:~/teambtsubasa";
-    private static final String USER = "teambtsubasa";
+    private static final String URL = "jdbc:h2:~/teambkazuyoshi";
+    private static final String USER = "teambkazuyoshi";
     private static final String PASSWORD = "";
 
     public List<School> getSchools() {
