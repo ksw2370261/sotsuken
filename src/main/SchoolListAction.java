@@ -22,3 +22,4 @@ public class SchoolListAction extends Action {
         request.getRequestDispatcher("/main/school_list.jsp").forward(request, response);
     }
 }
+

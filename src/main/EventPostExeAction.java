@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import bean.Admin;
 import bean.Event;
-import dao.EventDao;
+import dao.EventPostDao;
 import tool.Action;
 
 public class EventPostExeAction extends Action {
@@ -55,7 +55,7 @@ public class EventPostExeAction extends Action {
         String dbPassword = "";
 
         try (Connection connection = DriverManager.getConnection(url, dbUser, dbPassword)) {
-            EventDao eventDao = new EventDao(connection);
+            EventPostDao eventDao = new EventPostDao(connection);
 
             // admin_id に基づいて school_cd を取得
             Integer schoolCd = eventDao.getSchoolCdByAdminId(admin.getAdmin_Id());
@@ -82,3 +82,4 @@ public class EventPostExeAction extends Action {
         }
     }
 }
+

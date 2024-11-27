@@ -25,8 +25,8 @@ public class EventListAction extends Action {
             return;
         }
 
-        String url = "jdbc:h2:~/teambtsubasa";
-        String dbUser = "teambtsubasa";
+        String url = "jdbc:h2:~/teambkazuyoshi";
+        String dbUser = "teambkazuyoshi";
         String dbPassword = "";
 
         try (Connection connection = DriverManager.getConnection(url, dbUser, dbPassword)) {
@@ -44,3 +44,4 @@ public class EventListAction extends Action {
         }
     }
 }
+

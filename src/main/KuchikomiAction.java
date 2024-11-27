@@ -43,3 +43,4 @@ public class KuchikomiAction extends Action {
         }
     }
 }
+

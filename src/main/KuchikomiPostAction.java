@@ -1,8 +1,9 @@
 package main;
 
-import tool.Action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import tool.Action;
 
 public class KuchikomiPostAction extends Action {
     @Override
@@ -15,3 +16,4 @@ public class KuchikomiPostAction extends Action {
         request.getRequestDispatcher("/main/kuchikomi_post.jsp").forward(request, response);
     }
 }
+

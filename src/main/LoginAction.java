@@ -11,3 +11,4 @@ public class LoginAction extends Action {
         req.getRequestDispatcher("login.jsp").forward(req, res);
     }
 }
+

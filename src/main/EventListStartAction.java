@@ -5,10 +5,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class EventPostAction extends Action {
+public class EventListStartAction extends Action {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-    	req.getRequestDispatcher("event_post.jsp").forward(req, res);
+        // イベント一覧ページ（event_list.jsp）に遷移
+        req.getRequestDispatcher("event_list.jsp").forward(req, res);
     }
 }
+
+
