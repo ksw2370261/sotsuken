@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class KuchikomiPostDao {
-    private static final String URL = "jdbc:h2:~/teambkazuyoshi";  // 適切なJDBC URLを指定
-    private static final String USER = "teambkazuyoshi";           // データベースのユーザー名
+    private static final String URL = "jdbc:h2:~/teambtsubasa";  // 適切なJDBC URLを指定
+    private static final String USER = "teambtsubasa";           // データベースのユーザー名
     private static final String PASSWORD = "";                   // データベースのパスワード
 
     // 口コミ投稿メソッド

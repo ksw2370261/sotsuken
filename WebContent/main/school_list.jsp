@@ -21,7 +21,7 @@
                         <!-- 学校情報を表示するボタンを含むフォーム -->
                         <div class="button-container">
                             <!-- マップボタンにクラス名を追加 -->
-                            <form action="Map.action" method="get" style="display: inline;">
+                            <form action="MapEventView.action" method="get" style="display: inline;">
                                 <input type="hidden" name="schoolCd" value="<%= school.getSchoolCd() %>">
                                 <button type="submit" class="map-button">マップ</button>
                             </form>

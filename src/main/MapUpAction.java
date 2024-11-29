@@ -1,3 +1,4 @@
+//MapUpAction.java
 package main;
 
 import javax.servlet.http.HttpServletRequest;
@@ -5,13 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import tool.Action;
 
-public class EventListStartAction extends Action {
-
+public class MapUpAction extends Action {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-        // イベント一覧ページ（event_list.jsp）に遷移
-        req.getRequestDispatcher("event_list.jsp").forward(req, res);
+        req.getRequestDispatcher("map_up.jsp").forward(req, res);
     }
 }
-
 

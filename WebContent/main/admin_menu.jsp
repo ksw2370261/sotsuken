@@ -70,7 +70,7 @@
         </div>
 
         <div class="menu-item2">
-            <a href="">マップ作成</a>
+            <a href="MapUp.action">マップ作成</a>
         </div>
 
         <div class="menu-item3">

@@ -10,8 +10,8 @@ import java.util.List;
 import bean.Kuchikomi;
 
 public class KuchikomiDao {
-    private static final String URL = "jdbc:h2:~/teambkazuyoshi";  // 適切なJDBC URLを指定
-    private static final String USER = "teambkazuyoshi";           // データベースのユーザー名
+    private static final String URL = "jdbc:h2:~/teambtsubasa";  // 適切なJDBC URLを指定
+    private static final String USER = "teambtsubasa";           // データベースのユーザー名
     private static final String PASSWORD = "";                   // データベースのパスワード
 
     // 学校コードに基づいて口コミを取得するメソッド
