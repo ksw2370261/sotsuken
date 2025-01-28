@@ -1,4 +1,3 @@
-//Kuchikomi.java
 package bean;
 
 import java.sql.Timestamp;
@@ -7,6 +6,7 @@ public class Kuchikomi {
     private int kuchikomiCd;          // `kuchikomi_cd` に対応
     private String kuchikomiContent;  // `kuchikomi_content` に対応
     private Timestamp kuchikomiTime;  // `kuchikomi_time` に対応
+    private String kuchikomiName;     // `kuchikomi_name`
 
     // Getter と Setter
     public int getKuchikomiCd() {
@@ -31,5 +31,13 @@ public class Kuchikomi {
 
     public void setKuchikomiTime(Timestamp kuchikomiTime) {
         this.kuchikomiTime = kuchikomiTime;
+    }
+
+    public String getKuchikomiName() {
+        return kuchikomiName;
+    }
+
+    public void setKuchikomiName(String kuchikomiName) {
+        this.kuchikomiName = kuchikomiName;
     }
 }

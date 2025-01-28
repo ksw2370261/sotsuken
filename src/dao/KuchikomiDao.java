@@ -17,7 +17,7 @@ public class KuchikomiDao {
     // 学校コードに基づいて口コミを取得するメソッド
     public List<Kuchikomi> getKuchikomiBySchoolCd(int schoolCd) {
         List<Kuchikomi> kuchikomiList = new ArrayList<>();
-        String sql = "SELECT kuchikomi_cd, kuchikomi_content, kuchikomi_time FROM kuchikomi WHERE school_cd = ? ORDER BY kuchikomi_time DESC";
+        String sql = "SELECT kuchikomi_cd, kuchikomi_content, kuchikomi_time, kuchikomi_name FROM kuchikomi WHERE school_cd = ? ORDER BY kuchikomi_time DESC";
 
         try {
             // JDBCドライバの読み込み
@@ -37,6 +37,7 @@ public class KuchikomiDao {
                         kuchikomi.setKuchikomiCd(rs.getInt("kuchikomi_cd"));
                         kuchikomi.setKuchikomiContent(rs.getString("kuchikomi_content"));
                         kuchikomi.setKuchikomiTime(rs.getTimestamp("kuchikomi_time"));
+                        kuchikomi.setKuchikomiName(rs.getString("kuchikomi_name"));  // kuchikomi_name を追加
                         kuchikomiList.add(kuchikomi);
                     }
                 }

@@ -13,13 +13,25 @@ public class SchoolListAction extends Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        // SchoolDaoのインスタンスを作成し、学校リストを取得
+        // SchoolDaoのインスタンスを作成
         SchoolDao schoolDao = new SchoolDao();
-        List<School> schools = schoolDao.getSchools();
 
-        // リクエスト属性に学校リストを設定し、JSPページに転送
+        // 検索キーワードを取得（もしあれば）
+        String schoolName = request.getParameter("schoolName");
+
+        List<School> schools;
+        if (schoolName != null && !schoolName.trim().isEmpty()) {
+            // キーワードがあれば、学校名でフィルタリング
+            schools = schoolDao.getSchoolsByName(schoolName);
+        } else {
+            // キーワードがなければ、全ての学校を取得
+            schools = schoolDao.getSchools();
+        }
+
+        // リクエスト属性に学校リストを設定
         request.setAttribute("schools", schools);
+
+        // JSPページに転送
         request.getRequestDispatcher("/main/school_list.jsp").forward(request, response);
     }
 }
-

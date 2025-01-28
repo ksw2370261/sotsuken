@@ -96,26 +96,49 @@
         }
 
         .btn-back {
-		    display: inline-block;
-		    background-color: #036635;
-		    color: white;
-		    padding: 10px 20px;
-		    border-radius: 5px;
-		    text-align: center;
-		    text-decoration: none;
-		    font-size: 16px;
-		    font-weight: bold;
-		    cursor: pointer;
-		    transition: background-color 0.3s;
-		    margin-bottom: 20px;
-		}
+            display: inline-block;
+            background-color: #036635;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 20px;
+        }
 
-		.btn-back:hover {
-		    background-color: #3cb371;
-		    color: #ffffff;
-		}
-        /* CSSはそのまま使用 */
+        .btn-back:hover {
+            background-color: #3cb371;
+            color: #ffffff;
+        }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+
+            form.addEventListener("submit", function(event) {
+                let isValid = true;
+
+                const inputs = form.querySelectorAll("input[required], textarea[required]");
+
+                inputs.forEach(function(input) {
+                    if (!input.value.trim()) {
+                        input.setCustomValidity("このフィールドを入力してください。");
+                        isValid = false;
+                    } else {
+                        input.setCustomValidity("");
+                    }
+                });
+
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -144,12 +167,12 @@
 
             <div class="form-group">
                 <label for="event_name">イベント名:</label>
-                <input type="text" id="event_name" name="event_name">
+                <input type="text" id="event_name" name="event_name" required>
             </div>
 
             <div class="form-group">
                 <label for="event_content">イベント内容:</label>
-                <textarea id="event_content" name="event_content" rows="4"></textarea>
+                <textarea id="event_content" name="event_content" rows="4" required></textarea>
             </div>
 
             <!-- 送信ボタン -->
@@ -160,4 +183,4 @@
     </div>
 
 <%@ include file="footer.jsp" %>
-
+</body>

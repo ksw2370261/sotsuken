@@ -73,5 +73,16 @@ public class EventDao {
         }
         return events;
     }
-}
 
+    public boolean deleteEvent(int eventCd) {
+        String sql = "DELETE FROM event WHERE event_cd = ?";
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, eventCd);
+            int rowsAffected = pstmt.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+}

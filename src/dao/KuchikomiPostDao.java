@@ -10,14 +10,15 @@ public class KuchikomiPostDao {
     private static final String PASSWORD = "";                   // データベースのパスワード
 
     // 口コミ投稿メソッド
-    public boolean insertKuchikomi(int schoolCd, String content) {
-        String sql = "INSERT INTO kuchikomi (school_cd, kuchikomi_content, kuchikomi_time) VALUES (?, ?, CURRENT_TIMESTAMP)";
+    public boolean insertKuchikomi(int schoolCd, String content, String kuchikomiName) {
+        String sql = "INSERT INTO kuchikomi (school_cd, kuchikomi_content, kuchikomi_time, kuchikomi_name) VALUES (?, ?, CURRENT_TIMESTAMP, ?)";
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setInt(1, schoolCd);
             pstmt.setString(2, content);
+            pstmt.setString(3, kuchikomiName);  // 口コミ名を追加
 
             int rows = pstmt.executeUpdate();
             return rows > 0;

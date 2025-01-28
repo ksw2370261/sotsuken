@@ -1,10 +1,11 @@
+<!-- event_list.jsp -->
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="bean.Event" %>
 <%@ include file="header_login.jsp" %>
 
 <head>
-    <title>イベント一覧</title>
+    <title>CampusMap-イベント一覧</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,9 +16,10 @@
 
         h2 {
             text-align: center;
+            align-items: center;
             margin: 20px auto;
             padding: 1rem 3rem;
-            width: 300px;
+            width: 200px;
             color: #036635;
             border-radius: 100vh;
             background-color: #ffffff;
@@ -45,20 +47,20 @@
         }
 
         .container {
-		    max-width: 900px;
-		    margin: auto auto 100px auto;
-		    background-color: #ffffff;
-		    padding: 20px;
-		    border-radius: 8px;
-		    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-		    max-height: 600px; /* 高さの上限を設定 */
-		    overflow-y: auto; /* スクロールを有効に */
-		}
+            max-width: 900px;
+            margin: auto auto 100px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto; /* Enable scrolling */
+        }
 
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+
         }
 
         th, td {
@@ -90,9 +92,9 @@
         }
 
         .event-info {
-            display: flex; /* 横並びにする */
-            justify-content: flex-start; /* 左寄せ */
-            gap: 20px; /* 項目間の間隔 */
+            display: flex; /* Arrange horizontally */
+            justify-content: flex-start; /* Left align */
+            gap: 20px; /* Space between items */
             margin-bottom: 10px;
         }
 
@@ -128,6 +130,22 @@
             flex-direction: column;
             gap: 10px;
         }
+
+        .btn-delete {
+            transform: translateY(-50%);
+            padding: 5px 10px;
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-delete:hover {
+            background-color: #ff4500;
+        }
     </style>
     <script>
         function toggleContent(eventId) {
@@ -145,13 +163,19 @@
                 link.innerText = "全文表示";
             }
         }
+
+        function deleteEvent(eventCd) {
+            if (confirm('このイベントを削除しますか？')) {
+                window.location.href = 'EventDelete.action?eventCd=' + eventCd;
+            }
+        }
     </script>
 </head>
 
 <body>
     <h2>イベント一覧</h2>
 
-    <!-- 戻るボタン -->
+    <!-- Back Button -->
     <a href="AdminMenu.action" class="btn-back">戻る</a>
 
     <div class="container">
@@ -163,7 +187,7 @@
                 <%
                     for (Event event : events) {
                         String content = event.getEventContent();
-                        boolean isLongContent = content.length() > 50; // 表示する最大文字数
+                        boolean isLongContent = content.length() > 50; // Maximum characters to display
                         String shortContent = isLongContent ? content.substring(0, 50) + "..." : content;
                 %>
                     <div class="event-row">
@@ -179,6 +203,11 @@
                             <% if (isLongContent) { %>
                                 <span id="toggle-link-<%= event.getEventCd() %>" class="toggle-link" onclick="toggleContent(<%= event.getEventCd() %>)">全文表示</span>
                             <% } %>
+                        </div>
+                        <div>
+                        	<br>
+                        	<br>
+                            <button onclick="deleteEvent(<%= event.getEventCd() %>)" class="btn-delete">削除</button>
                         </div>
                     </div>
                 <%
@@ -197,4 +226,3 @@
 <%@ include file="footer.jsp" %>
 </body>
 </html>
-

@@ -43,8 +43,8 @@ public class RegistExeAction extends Action {
         school.setSchoolName(schoolName);
 
         // データベース接続の設定
-        String url = "jdbc:h2:~/teambkazuyoshi";
-        String dbUser = "teambkazuyoshi";
+        String url = "jdbc:h2:~/teambtsubasa";
+        String dbUser = "teambtsubasa";
         String dbPassword = "";
 
         try {

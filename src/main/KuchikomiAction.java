@@ -33,13 +33,13 @@ public class KuchikomiAction extends Action {
             } else {
                 // schoolCd が不正な場合はエラーメッセージを設定
                 request.setAttribute("error", "学校コードが無効です");
-                request.getRequestDispatcher("error.jsp").forward(request, response);
+                request.getRequestDispatcher("error_user.jsp").forward(request, response);
             }
         } catch (Exception e) {
             // エラー処理
             e.printStackTrace();
             request.setAttribute("error", "エラーが発生しました。もう一度試してください。");
-            request.getRequestDispatcher("error.jsp").forward(request, response);
+            request.getRequestDispatcher("error_user.jsp").forward(request, response);
         }
     }
 }

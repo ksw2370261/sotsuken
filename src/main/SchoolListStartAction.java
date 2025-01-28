@@ -34,4 +34,3 @@ public class SchoolListStartAction extends HttpServlet {
         }
     }
 }
-

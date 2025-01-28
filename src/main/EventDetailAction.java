@@ -11,10 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Event;
-import bean.MapImage;
 import tool.Action;
 
-public class MapEventViewAction extends Action {
+public class EventDetailAction extends Action {
 
     private static final String DB_URL = "jdbc:h2:~/teambtsubasa";
     private static final String DB_USER = "teambtsubasa";
@@ -24,70 +23,42 @@ public class MapEventViewAction extends Action {
     public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
         String schoolCd = req.getParameter("schoolCd");
 
+        // 学校コードが指定されていない場合はエラーメッセージを送信
         if (schoolCd == null || schoolCd.isEmpty()) {
             res.sendError(HttpServletResponse.SC_BAD_REQUEST, "学校のIDが指定されていません。");
             return;
         }
 
-        MapImage map = getMapFromDatabase(schoolCd);
-        List<MapImage> maps = getAllMapsBySchoolCd(schoolCd);
+        // 学校コードに基づいてイベント情報を取得
         List<Event> events = getEventInfoFromDatabase(schoolCd);
 
+        // リクエスト属性に学校コードとイベントリストを設定
         req.setAttribute("schoolCd", schoolCd);
-        req.setAttribute("map", map);
-        req.setAttribute("maps", maps);
         req.setAttribute("events", events);
 
-        req.getRequestDispatcher("map_event_view.jsp").forward(req, res);
+        // イベント詳細画面へフォワード
+        req.getRequestDispatcher("event_detail.jsp").forward(req, res);
     }
 
-    private MapImage getMapFromDatabase(String schoolCd) {
-        MapImage map = null;
-        String sql = "SELECT map_name FROM map_image WHERE school_cd = ? LIMIT 1";
-
-        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, schoolCd);
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                String mapName = rs.getString("map_name");
-                map = new MapImage(mapName, null); // 画像データは省略
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return map;
-    }
-
-    private List<MapImage> getAllMapsBySchoolCd(String schoolCd) {
-        List<MapImage> maps = new ArrayList<>();
-        String sql = "SELECT map_name FROM map_image WHERE school_cd = ?";
-
-        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, schoolCd);
-            ResultSet rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                String mapName = rs.getString("map_name");
-                maps.add(new MapImage(mapName, null)); // 画像データは省略
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return maps;
-    }
-
+    /**
+     * データベースからイベント情報を取得するメソッド
+     *
+     * @param schoolCd 学校コード
+     * @return イベントリスト
+     */
     private List<Event> getEventInfoFromDatabase(String schoolCd) {
         List<Event> eventList = new ArrayList<>();
         String sql = "SELECT event_cd, event_name, event_date, event_time, event_location, event_content FROM event WHERE school_cd = ?";
 
-        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (
+            Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            PreparedStatement stmt = conn.prepareStatement(sql)
+        ) {
+            // 学校コードをパラメータに設定
             stmt.setString(1, schoolCd);
             ResultSet rs = stmt.executeQuery();
 
+            // 結果セットからイベント情報を取得し、リストに追加
             while (rs.next()) {
                 Event event = new Event();
                 event.setEventCd(rs.getInt("event_cd"));
@@ -96,6 +67,14 @@ public class MapEventViewAction extends Action {
                 event.setEventTime(rs.getString("event_time"));
                 event.setEventLocation(rs.getString("event_location"));
                 event.setEventContent(rs.getString("event_content"));
+
+                // コンテンツの短縮バージョンを設定（必要に応じて）
+                if (event.getEventContent().length() > 50) {
+                    event.setShortContent(event.getEventContent().substring(0, 50) + "...");
+                } else {
+                    event.setShortContent(event.getEventContent());
+                }
+
                 eventList.add(event);
             }
         } catch (Exception e) {

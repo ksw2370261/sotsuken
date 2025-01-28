@@ -5,7 +5,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>CampusMap-マップアップロード</title>
+    <title>CampusMap-マップ投稿</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,7 +19,7 @@
             align-items: center;
             margin: 20px auto;
             padding: 1rem 3rem;
-            width: 220px;
+            width: 200px;
             color: #036635;
             border-radius: 100vh;
             background-color: #ffffff;
@@ -110,7 +110,7 @@
 </head>
 
 <body>
-    <h2>マップアップロード</h2>
+    <h2>マップ投稿</h2>
     <div class="container">
         <!-- 戻るリンク -->
         <a href="AdminMenu.action" class="btn-back">戻る</a>

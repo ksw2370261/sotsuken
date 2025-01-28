@@ -22,6 +22,9 @@ public class Event implements java.io.Serializable {
 	// イベントの内容を格納するフィールド
 	private String eventContent;
 
+	// イベントの短縮版内容を格納するフィールド
+	private String shortContent;
+
 	// eventCdフィールドの値を返すgetterメソッド
 	public int getEventCd() {
 		return eventCd;
@@ -52,6 +55,11 @@ public class Event implements java.io.Serializable {
 		return eventContent;
 	}
 
+	// shortContentフィールドの値を返すgetterメソッド
+	public String getShortContent() {
+		return shortContent;
+	}
+
 	// eventCdフィールドの値を設定するsetterメソッド
 	public void setEventCd(int eventCd) {
 		this.eventCd = eventCd;
@@ -80,5 +88,25 @@ public class Event implements java.io.Serializable {
 	// eventContentフィールドの値を設定するsetterメソッド
 	public void setEventContent(String eventContent) {
 		this.eventContent = eventContent;
+		// イベントの内容が変更されたときに短縮版を自動生成
+		setShortContent(generateShortContent(eventContent));
+	}
+
+	// shortContentフィールドの値を設定するsetterメソッド
+	public void setShortContent(String shortContent) {
+		this.shortContent = shortContent;
+	}
+
+	/**
+	 * イベントの内容から短縮版を生成するメソッド
+	 * @param content イベント内容
+	 * @return 短縮版の内容（50文字以内 + "..."）
+	 */
+	private String generateShortContent(String content) {
+		if (content != null && content.length() > 50) {
+			return content.substring(0, 50) + "...";
+		} else {
+			return content;
+		}
 	}
 }

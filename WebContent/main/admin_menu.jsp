@@ -19,12 +19,12 @@
             text-align: center;
             align-items: center;
             margin: 20px auto;
-			padding: 1rem 3rem;
-			width: 180px;
-			color: #036635;
-			border-radius: 100vh;
-			background-color: #ffffff;
-			border: 2px solid #036635; /* 2pxの緑色の縁 */
+            padding: 1rem 3rem;
+            width: 200px;
+            color: #036635;
+            border-radius: 100vh;
+            background-color: #ffffff;
+            border: 2px solid #036635;
         }
 
         .menu-container {
@@ -33,7 +33,7 @@
             flex-wrap: wrap;
         }
 
-        .menu-item1, .menu-item2, .menu-item3, .menu-item4 {
+        .menu-item1, .menu-item2, .menu-item3, .menu-item4, .menu-item5 {
 	        background-color: #ffffff;
 	        border: 1px solid #ccc;
 	        border-radius: 8px;
@@ -46,7 +46,7 @@
 	        border: 1px solid #036635; /* 2pxの緑色の縁 */
 	    }
 
-	    .menu-item1 a, .menu-item2 a, .menu-item3 a, .menu-item4 a {
+	    .menu-item1 a, .menu-item2 a, .menu-item3 a, .menu-item4 a, .menu-item5 a {
 	        text-decoration: none;
 	        color: #036635;
 	        font-weight: bold;
@@ -55,7 +55,7 @@
 	        line-height: 85px; /* 高さに合わせてテキストを垂直方向に中央に配置 */
 	    }
 
-        .menu-item1:hover, .menu-item2:hover, .menu-item3:hover, .menu-item4:hover {
+        .menu-item1:hover, .menu-item2:hover, .menu-item3:hover, .menu-item4:hover, .menu-item5:hover {
             background-color: #e0f7fa;
         }
     </style>
@@ -66,11 +66,11 @@
 
     <div class="menu-container">
         <div class="menu-item1">
-            <a href="">マップ一覧</a>
+            <a href="MapList.action">マップ一覧</a>
         </div>
 
         <div class="menu-item2">
-            <a href="MapUp.action">マップ作成</a>
+            <a href="MapUp.action">マップ投稿</a>
         </div>
 
         <div class="menu-item3">
@@ -79,6 +79,10 @@
 
         <div class="menu-item4">
             <a href="EventPost.action">イベント投稿</a>
+        </div>
+
+        <div class="menu-item5">
+        	<a href="KuchikomiManage.action">口コミ管理</a>
         </div>
     </div>
 </body>
