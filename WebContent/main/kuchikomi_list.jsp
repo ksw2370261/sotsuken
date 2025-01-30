@@ -28,6 +28,11 @@
             border: 2px solid #036635;
         }
 
+        h1 {
+        	text-align: center;
+        	font-size: 1.7rem;
+        }
+
         .button-container {
             display: flex;
             justify-content: center;
@@ -165,6 +170,8 @@
             <button type="submit">口コミ投稿</button>
         </form>
     </div>
+
+    <h1><%= request.getAttribute("schoolName") %></h1>
 
     <ul>
         <%

@@ -48,4 +48,34 @@ public class KuchikomiDao {
 
         return kuchikomiList;
     }
+
+    // 学校コードに基づいて学校名を取得するメソッド
+    public String getSchoolNameBySchoolCd(int schoolCd) {
+        String schoolName = null;
+        String sql = "SELECT school_name FROM school WHERE school_cd = ?";
+
+        try {
+            // JDBCドライバの読み込み
+            Class.forName("org.h2.Driver");
+
+            // データベース接続
+            try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+                // schoolCdをクエリに設定
+                pstmt.setInt(1, schoolCd);
+
+                // クエリを実行し、結果セットを取得
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    if (rs.next()) {
+                        schoolName = rs.getString("school_name");
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return schoolName;
+    }
 }
