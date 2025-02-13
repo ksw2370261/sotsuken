@@ -27,8 +27,8 @@ import tool.Action;
 public class MapUpExeAction extends Action {
 
     // JDBCの接続情報
-    private static final String DB_URL = "jdbc:h2:~/teambtsubasa";
-    private static final String DB_USER = "teambtsubasa";
+    private static final String DB_URL = "jdbc:h2:~/teambkazuyoshi";
+    private static final String DB_USER = "teambkazuyoshi";
     private static final String DB_PASSWORD = "";
 
     @Override
@@ -111,3 +111,14 @@ public class MapUpExeAction extends Action {
         return schoolCd;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
