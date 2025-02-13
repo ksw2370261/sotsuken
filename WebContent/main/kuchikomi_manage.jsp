@@ -105,7 +105,7 @@
         <c:if test="${not empty kuchikomiList}">
             <table>
 			    <tr>
-			    	<th style="width: 10%;">口コミ名</th>
+			    	<th style="width: 10%;">投稿者</th>
 			        <th style="width: 63%;">口コミ内容</th>
 			        <th style="width: 17%;">口コミ時間</th>
 			        <th style="width: 10%;">削除</th>
